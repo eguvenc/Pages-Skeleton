@@ -10,27 +10,27 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class IndexModel extends PageView
 {
-	/**
-	 * Page view index
-	 */
+    /**
+     * Page view index
+     */
     public function onGet(Request $request, array $config)
     {
         return new HtmlResponse($this->render($this->layout));
     }
 
-	/**
+    /**
      * Parital view header ajax example
      */
     public function onHeaderModel()
     {
-    	return $this->model('App\Pages\Templates\HeaderModel');
+        return $this->model('App\Pages\Templates\HeaderModel');
     }
 
-	/**
+    /**
      * Parital view footer ajax example
      */
-	public function onFooterModel()
+    public function onFooterModel()
     {
-    	return $this->model('App\Pages\Templates\FooterModel');	
+        return $this->model('App\Pages\Templates\FooterModel');
     }
 }
