@@ -7,7 +7,6 @@ data/cache/*
 !data/language/en_US/.gitkeep
 data/log/*
 !data/log/.gitkeep
-phpunit.xml
 .phpunit.result.cache
 composer.lock
 .php_cs.cache

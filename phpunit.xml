@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true">
+    <testsuites>
+        <testsuite name="Obullo-Pages Skeleton Test Suite">
+            <directory>./src/App/Test</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src/*/Pages</directory>
+            <directory suffix=".php">./src/*/Middleware</directory>
+            <file>./src/*/Module.php</file>
+            <file>./src/*/ConfigProvider.php</file>
+        </whitelist>
+    </filter>
+</phpunit>

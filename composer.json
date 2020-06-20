@@ -40,6 +40,7 @@
         "laminas/laminas-modulemanager": "^2.8",
         "psr/log": "^1.1",
         "monolog/monolog": "^2.0",
-        "laminas/laminas-test": "^3.4"
+        "laminas/laminas-test": "^3.4",
+        "obullo/obullo": "dev-master"
     }
 }
