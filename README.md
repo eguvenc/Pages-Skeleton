@@ -8,7 +8,7 @@ looking to get their feet wet with Obullo.
 
 ## Installation using Composer
 
-The easiest way to create a new Laminas MVC project is to use
+The easiest way to create a new Obullo-Pages project is to use
 [Composer](https://getcomposer.org/). If you don't have it already installed,
 then please install as per the [documentation](https://getcomposer.org/doc/00-intro.md).
 
