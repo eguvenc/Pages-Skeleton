@@ -2,6 +2,11 @@
 vendor/
 config/autoload/local.php
 config/autoload/development.php
+data/cache/*
+!data/cache/.gitkeep
+!data/language/en_US/.gitkeep
+data/log/*
+!data/log/.gitkeep
 phpunit.xml
 .phpunit.result.cache
 composer.lock
