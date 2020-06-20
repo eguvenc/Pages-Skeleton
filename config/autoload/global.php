@@ -1,15 +1,13 @@
 <?php
 
-use Obullo\Router\Types\{
-    IntType,
-    StrType
-};
+use Obullo\Router\Types\IntType;
+use Obullo\Router\Types\StrType;
 use Laminas\ServiceManager\Factory\InvokableFactory;
 use Symfony\Component\Yaml\Yaml;
 
 return [
     'view_manager' => [
-      	'base_path' => '/',
+          'base_path' => '/',
     ],
     'router' => [
         // Available global route types
