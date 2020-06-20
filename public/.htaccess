@@ -1,0 +1,22 @@
+
+# Disable directory indexing
+Options -Indexes
+Options +FollowSymLinks
+Options -MultiViews
+
+DirectoryIndex index.php
+
+RewriteEngine on
+RewriteBase /
+
+RewriteRule ^composer\.(json|lock) - [F,L,NC]
+RewriteRule (error|debug)\.log - [F,L,NC]
+
+# Process through app if no file with the requested name exists.
+# Pass through the original path as a query parameter, and retain the existing parameters.
+# Try finding framework in the vendor folder first
+RewriteCond %{REQUEST_URI} ^(.*)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php/$1 [L]

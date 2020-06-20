@@ -1,0 +1,45 @@
+{
+    "name": "obullo/pages-skeleton",
+    "type": "library",
+    "description": "Obullo-Pages is a new aspect of MVC in PHP, developed using Laminas components, inspired by the .NET Razor Pages framework.",
+    "keywords": [
+        "obullo",
+        "pages",
+        "obullo-pages",
+        "based-on-page-structure",
+        "php7",
+        "mvc",
+        "framework"
+    ],
+    "homepage": "http://obullo.com",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "obullo/router": "^1.7.4",
+        "laminas/laminas-diactoros": "^2.2",
+        "laminas/laminas-stratigility": "^3.2",
+        "laminas/laminas-db": "^2.11",
+        "laminas/laminas-config": "^3.3",
+        "laminas/laminas-config-aggregator": "^1.2",
+        "laminas/laminas-validator": "^2.13",
+        "laminas/laminas-servicemanager": "^3.4",
+        "laminas/laminas-session": "^2.9",
+        "laminas/laminas-i18n-resources": "^2.6",
+        "laminas/laminas-i18n": "^2.10",
+        "laminas/laminas-view": "^2.11",
+        "laminas/laminas-escaper": "^2.6",
+        "symfony/yaml": "^5.0",
+        "laminas/laminas-form": "^2.14",
+        "laminas/laminas-http": "^2.11",
+        "laminas/laminas-httphandlerrunner": "^1.1",
+        "laminas/laminas-modulemanager": "^2.8",
+        "psr/log": "^1.1",
+        "monolog/monolog": "^2.0",
+        "laminas/laminas-test": "^3.4"
+    }
+}

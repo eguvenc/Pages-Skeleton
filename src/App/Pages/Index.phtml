@@ -1,0 +1,37 @@
+
+<?php $this->headTitle('Welcome to Obullo Pages') ?>
+
+<div class="welcome px-3 py-3 pt-md-5 pb-md-4">
+	<h2 class="display-4">Welcome to Obullo-Pages</h2>
+	<p>&nbsp;</p>
+	<p class="lead" style="line-height: 30px;">Congratulations! You have successfully installed the Obullo-Pages Skeleton.</p>
+	<p>&nbsp;</p>
+
+	<p class="lead" style="line-height: 30px;">The page you are on was created by combining 2 partial view models. You can also create these models with an ajax request.</p>
+	<p>&nbsp;</p>
+
+	<div class="list-group">
+	  <a href="javascript:void(0);" onclick="onHeaderModel();" class="list-group-item list-group-item-action">App\Pages\Templates\HeaderModel <span class="note">(Click here to create it with ajax)</span></a>
+	  <li id="onHeaderModel" class="list-group-item list-group-item-action" style="height: 140px;display:none;"></li>
+	  <a href="javascript:void(0);" onclick="onFooterModel();" class="list-group-item list-group-item-action">App\Pages\Templates\FooterModel</a>
+	  <li id="onFooterModel" class="list-group-item list-group-item-action" style="height: 140px;display:none;"></li>
+	</div>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<a href="http://obullo.com/" class="btn btn-lg btn-block btn-outline-secondary">Learn more about Obullo</a>
+</div>
+
+<?php $this->inlineScript()->captureStart(); ?>
+    function onHeaderModel() {
+        $.get('/?onHeaderModel', function(data) {
+        	$('#onHeaderModel').show();
+            $('#onHeaderModel').html(data);
+        });
+    }
+    function onFooterModel() {
+        $.get('/?onFooterModel', function(data) {
+        	$('#onFooterModel').show();
+            $('#onFooterModel').html(data);
+        });
+    }
+<?php $this->inlineScript()->captureEnd(); ?>

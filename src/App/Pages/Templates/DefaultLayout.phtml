@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <?php echo $this->headTitle() ?>
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->asset('/css/bootstrap.css') ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->asset('/css/welcome.css') ?>" />
+  </head>
+  <body>
+    <?php echo $this->model('App\Pages\Templates\HeaderModel')->getBody() ?>
+
+    <div class="container">
+      <?php echo $this->content ?>
+      <?php echo $this->model('App\Pages\Templates\FooterModel')->getBody() ?>
+    </div>
+
+    <?php echo $this->inlineScript() ?>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="<?php echo $this->asset('/js/jquery-3.5.1.min.js', false) ?>"></script>
+    <script src="<?php echo $this->asset('/js/bootstrap.min.js', false) ?>"></script>
+  </body>
+</html>
