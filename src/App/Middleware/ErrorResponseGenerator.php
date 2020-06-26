@@ -5,39 +5,32 @@ declare(strict_types=1);
 namespace App\Middleware;
 
 use Throwable;
-use Interop\Container\ContainerInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
-
 use Laminas\View\View;
 use Laminas\View\Model\ViewModel;
 
 class ErrorResponseGenerator
 {
-    protected $container;
+	private $renderer;
+	private $config;
 
-    public function __construct(ContainerInterface $container)
+    public function __construct(View $renderer, array $config)
     {
-        $this->container = $container;
+        $this->renderer = $renderer;
+        $this->config = $config;
     }
 
     public function __invoke(Throwable $exception, ServerRequestInterface $request, ResponseInterface $response)
     {
-        $module = strstr(__NAMESPACE__, '\\', true);
-
-        $config = $this->container->get('config');
-        $isDevelopmentMode = empty($config['view_manager']['display_exceptions']) ? false : true;
-        $response = $response->withStatus(500);
-
-        $view = $this->container->get(View::class);
         $viewModel = new ViewModel;
         $viewModel->exception = $exception;
-        $viewModel->isDevelopmentMode = $isDevelopmentMode;
-        $viewModel->setTemplate($module.'\Pages\Templates\ErrorsAndExceptions');
+        $viewModel->isDevelopmentMode = empty($this->config['view_manager']['display_exceptions']) ? false : true;
+        $viewModel->setTemplate('App/Pages/Templates/ErrorsAndExceptions');
         $viewModel->setOption('has_parent', true);
-        $html = $view->render($viewModel);
         
-        $response->getBody()->write($html);
+        $response = $response->withStatus(500);
+        $response->getBody()->write($this->renderer->render($viewModel));
         return $response;
     }
 }

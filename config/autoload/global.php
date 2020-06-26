@@ -2,7 +2,6 @@
 
 use Obullo\Router\Types\IntType;
 use Obullo\Router\Types\StrType;
-use Laminas\ServiceManager\Factory\InvokableFactory;
 use Symfony\Component\Yaml\Yaml;
 
 return [
@@ -47,5 +46,4 @@ return [
 
         ],
     ],
-
 ];

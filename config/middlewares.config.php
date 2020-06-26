@@ -1,10 +1,10 @@
 <?php
 
 /**
- * List of enabled middlewares for this application.
+ * List of enabled global middlewares for this application.
  *
- * Order of array is important, HttpMethodMiddleware should be at the top.
+ * Order of array is important.
  */
 return  [
-    'Obullo\Middleware\HttpMethodMiddleware',
+    'Obullo\Middleware\HttpMethodMiddleware'
 ];

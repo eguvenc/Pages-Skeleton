@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Test\Pages;
 
+use App\Pages\IndexModel;
+use App\Pages\HeaderModel;
+use App\Pages\FooterModel;
 use Laminas\Stdlib\ArrayUtils;
 use Obullo\Test\PHPUnit\Pages\AbstractHttpPageTestCase;
 
@@ -29,22 +32,38 @@ class IndexModelTest extends AbstractHttpPageTestCase
     public function testIndexModelCanBeAccessed()
     {
         $this->dispatch('/', 'GET');
-        // $this->assertResponseStatusCode(200);
-        // $this->assertModuleName('application');
-        // // $this->assertControllerName(IndexController::class); // as specified in router's controller name alias
-        // $this->assertControllerClass('IndexController');
-        // $this->assertMatchedRouteName('home');
+        $this->assertResponseStatusCode(200);
+        $this->assertModuleName('App');
+        $this->assertPageModelName(IndexModel::class);
+        $this->assertPageModel('IndexModel');
+        $this->assertMatchedRoutePath('/');
     }
 
     public function testIndexModelRenderedWithinLayout()
     {
-        $this->dispatch('/', 'GET');
-        $this->assertQuery('.container .jumbotron');
+        $this->dispatch('/', 'GET'); 
+        $this->assertQuery('.container .welcome');
     }
 
     public function testInvalidRouteDoesNotCrash()
     {
         $this->dispatch('/invalid/route', 'GET');
         $this->assertResponseStatusCode(404);
+    }
+
+    public function testHeaderModelCanBeAccessedWithAjaxRequest()
+    {
+        $this->dispatch('/', 'GET', ['onHeaderModel' => true], true);
+        $this->assertResponseStatusCode(200);
+        $this->assertQuery('.d-flex .flex-column');
+        $this->assertTemplateName('App/Pages/Templates/Header');
+    }
+
+    public function testFooterModelCanBeAccessedWithAjaxRequest()
+    {
+        $this->dispatch('/', 'GET', ['onFooterModel' => true], true);
+        $this->assertResponseStatusCode(200);
+        $this->assertQuery('.pt-4 .my-md-5');
+        $this->assertTemplateName('App/Pages/Templates/Footer');
     }
 }

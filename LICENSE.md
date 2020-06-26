@@ -1,4 +1,5 @@
-Copyright (c) 2020-2021, Obullo
+
+Copyright (c) 2020, Obullo
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

@@ -19,7 +19,7 @@ class IndexModel extends PageView
     }
 
     /**
-     * Parital view header ajax example
+     * Partial view header ajax example
      */
     public function onHeaderModel()
     {
@@ -27,7 +27,7 @@ class IndexModel extends PageView
     }
 
     /**
-     * Parital view footer ajax example
+     * Partial view footer ajax example
      */
     public function onFooterModel()
     {
