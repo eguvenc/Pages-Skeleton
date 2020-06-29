@@ -2,14 +2,14 @@
 
 return [
 
-    // Root path
-    'root' => dirname(__DIR__),
-
     // Modules
     'modules' => require __DIR__ . '/modules.config.php',
 
     // Middlewares
     'middlewares' => require __DIR__ . '/middlewares.config.php',
+
+    // Services
+    'service_manager' => [],
 
     // Configuration overrides during development mode
     'module_listener_options' => [
@@ -17,7 +17,7 @@ return [
         // An array of paths from which to glob configuration files after
         // modules are loaded. These effectively override configuration
         // provided by modules themselves. Paths may use GLOB_BRACE notation.
-        'config_glob_paths' => [realpath(__DIR__) . sprintf('/autoload/{,*.}{global,%s,local}.php', getenv('APP_ENV') ?: 'development')],
+        'config_glob_paths' => [realpath(__DIR__) . sprintf('/autoload/{,*.}{global,%s,local}.php', $env)],
 
         // Whether or not to enable a configuration cache.
         // If enabled, the merged configuration will be cached and used in

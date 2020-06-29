@@ -1,14 +1,17 @@
+#!/usr/bin/env php
 <?php
-
 declare(strict_types=1);
 
+set_time_limit(0);
 require '../vendor/autoload.php';
 
 use Laminas\ServiceManager\ServiceManager;
+use Symfony\Component\Console\Input\ArgvInput;
 
 // assign environment variable
 // 
-$env = getenv('APP_ENV') ?: 'development';
+$input = new ArgvInput();
+$env = $input->getParameterOption(['--env', '-e'], getenv('APP_ENV') ?: 'development', true);
 $appConfig = require __DIR__ . '/../config/application.config.php';
 $smConfig = new Obullo\Container\ServiceManagerConfig($appConfig['service_manager']);
 
@@ -17,18 +20,17 @@ $smConfig = new Obullo\Container\ServiceManagerConfig($appConfig['service_manage
 $container = new ServiceManager();
 $smConfig->configureServiceManager($container);
 $container->setService('appConfig', $appConfig);
-$container->addAbstractFactory(new Obullo\Factory\LazyPageFactory);
-$container->addAbstractFactory(new Obullo\Factory\LazyMiddlewareFactory);
+$container->setFactory('ServiceListener', 'Obullo\Factory\ServiceListenerConsoleFactory');
+$container->addAbstractFactory(new Obullo\Factory\LazyCommandFactory);
 
 // load app modules
 //
 $container->get('ModuleManager')->loadModules();
 
-// initialize to application
-// 
-$application = $container->get('Application');
-$application->bootstrap();
-
-// send response
+// create console application
 //
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+$application->add($container->build('App\Command\Clear'));
 $application->run();

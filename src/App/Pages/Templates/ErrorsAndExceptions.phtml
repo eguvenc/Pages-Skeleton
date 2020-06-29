@@ -48,7 +48,7 @@ dd {
     <section>
         <dl>
         <?php if ($message = $exception->getMessage()) { ?>
-                <dt>Message</dt><dd><?php echo $message ?></dd>
+                <dt>Message</dt><dd><?php echo htmlspecialchars($message) ?></dd>
         <?php } ?>
         <?php if ($code = $exception->getCode()) { ?>
                 <dt>Code</dt><dd><?php echo $code ?></dd>

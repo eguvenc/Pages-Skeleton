@@ -20,6 +20,7 @@
     },
     "require": {
         "php": ">=7.1",
+        "symfony/console": "^5.1",
         "obullo/obullo": "dev-master"
     },
     "require-dev": {
