@@ -13,7 +13,7 @@ class IndexModel extends PageView
     /**
      * Page view index
      */
-    public function onGet(Request $request, array $config)
+    public function onGet(array $get, array $config)
     {
         return new HtmlResponse($this->render($this->layout));
     }

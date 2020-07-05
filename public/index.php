@@ -17,7 +17,6 @@ $smConfig = new Obullo\Container\ServiceManagerConfig($appConfig['service_manage
 $container = new ServiceManager();
 $smConfig->configureServiceManager($container);
 $container->setService('appConfig', $appConfig);
-$container->addAbstractFactory(new Obullo\Factory\LazyPageFactory);
 $container->addAbstractFactory(new Obullo\Factory\LazyMiddlewareFactory);
 
 // load app modules

@@ -20,6 +20,7 @@ class IndexModelTest extends AbstractHttpPageTestCase
         // etc.
         $configOverrides = [];
 
+        $env = 'development';
         $appConfig = include __DIR__ . '/../../../../config/application.config.php';
         $this->setApplicationConfig(ArrayUtils::merge(
             $appConfig,
@@ -53,7 +54,7 @@ class IndexModelTest extends AbstractHttpPageTestCase
 
     public function testHeaderModelCanBeAccessedWithAjaxRequest()
     {
-        $this->dispatch('/', 'GET', ['onHeaderModel' => true], true);
+        $this->dispatch('/', 'GET', ['onHeaderModel' => true], $ajax = true);
         $this->assertResponseStatusCode(200);
         $this->assertQuery('.d-flex .flex-column');
         $this->assertTemplateName('App/Pages/Templates/Header');
@@ -61,7 +62,7 @@ class IndexModelTest extends AbstractHttpPageTestCase
 
     public function testFooterModelCanBeAccessedWithAjaxRequest()
     {
-        $this->dispatch('/', 'GET', ['onFooterModel' => true], true);
+        $this->dispatch('/', 'GET', ['onFooterModel' => true], $ajax = true);
         $this->assertResponseStatusCode(200);
         $this->assertQuery('.pt-4 .my-md-5');
         $this->assertTemplateName('App/Pages/Templates/Footer');
