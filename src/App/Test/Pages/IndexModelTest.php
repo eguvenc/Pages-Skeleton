@@ -42,7 +42,7 @@ class IndexModelTest extends AbstractHttpPageTestCase
 
     public function testIndexModelRenderedWithinLayout()
     {
-        $this->dispatch('/', 'GET'); 
+        $this->dispatch('/', 'GET');
         $this->assertQuery('.container .welcome');
     }
 

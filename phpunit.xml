@@ -7,6 +7,9 @@
     </testsuites>
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src/*/Command</directory>
+            <directory suffix=".php">./src/*/Form</directory>
+            <directory suffix=".php">./src/*/Model</directory>
             <directory suffix=".php">./src/*/Pages</directory>
             <directory suffix=".php">./src/*/Middleware</directory>
             <file>./src/*/Module.php</file>

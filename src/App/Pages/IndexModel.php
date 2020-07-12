@@ -6,14 +6,13 @@ namespace App\Pages;
 
 use Obullo\View\PageView;
 use Laminas\Diactoros\Response\HtmlResponse;
-use Psr\Http\Message\ServerRequestInterface as Request;
 
 class IndexModel extends PageView
 {
     /**
      * Page view index
      */
-    public function onGet(array $get, array $config)
+    public function onGet()
     {
         return new HtmlResponse($this->render($this->layout));
     }

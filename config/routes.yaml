@@ -1,7 +1,0 @@
-
-# routes.yaml
-#
-   
-/: 
-    method: GET
-    handler: App\Pages\IndexModel

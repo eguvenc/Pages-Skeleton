@@ -1,8 +1,5 @@
 <?php
 
-use Obullo\Router\Types\IntType;
-use Symfony\Component\Yaml\Yaml;
-
 return [
     // root path
     'root' => dirname(dirname(__DIR__)),
@@ -13,10 +10,6 @@ return [
     ],
     // router configurations
     'router' => [
-        'types' => [
-            new IntType('<int:id>'),
-        ],
-        'routes' => Yaml::parseFile(__DIR__.'/../routes.yaml'),
         'translatable_routes' => false,
     ],
 ];
