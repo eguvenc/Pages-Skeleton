@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Pages;
 
-use Obullo\View\PageView;
+use Obullo\View\View;
 use Laminas\Diactoros\Response\HtmlResponse;
 
-class IndexModel extends PageView
+class IndexModel extends View
 {
     /**
      * Page view index
