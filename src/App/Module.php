@@ -15,7 +15,7 @@ class Module
     public function getConfig() : array
     {
         return [
-            'service_manager' => []
+            'service_manager' => [],
             'router' => [
                 'routes' => [
                     '/' => [
