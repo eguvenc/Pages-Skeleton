@@ -9,13 +9,20 @@ use Obullo\Router\Types\IntType;
 use Laminas\Diactoros\Response;
 use Obullo\Middleware\NotFoundHandler;
 use Obullo\Middleware\ErrorHandler;
+use Laminas\ServiceManager\Factory\InvokableFactory;
 
 class Module
 {
     public function getConfig() : array
     {
         return [
-            'service_manager' => [],
+            'service_manager' => [
+                'factories' => [
+                    'App\Pages\IndexModel' => InvokableFactory::class,
+                    'App\Pages\Templates\HeaderModel' => InvokableFactory::class,
+                    'App\Pages\Templates\FooterModel' => InvokableFactory::class,
+                ]
+            ],
             'router' => [
                 'routes' => [
                     '/' => [

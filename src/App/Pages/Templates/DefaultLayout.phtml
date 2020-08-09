@@ -17,13 +17,13 @@
       <?php echo $this->model('App\Pages\Templates\FooterModel')->getBody() ?>
     </div>
 
-    <?php echo $this->inlineScript() ?>
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
     <script src="<?php echo $this->asset('/js/jquery-3.5.1.min.js', false) ?>"></script>
     <script src="<?php echo $this->asset('/js/bootstrap.min.js', false) ?>"></script>
+
+    <?php echo $this->inlineScript() ?>
   </body>
 </html>
