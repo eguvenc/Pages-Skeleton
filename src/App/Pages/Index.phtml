@@ -11,14 +11,19 @@
 	<p>&nbsp;</p>
 
 	<div class="list-group">
-	  <a href="javascript:void(0);" onclick="onHeaderModel();" class="list-group-item list-group-item-action">App\Pages\Templates\HeaderModel <span class="note">(Click here to create it with ajax)</span></a>
-	  <li id="onHeaderModel" class="list-group-item list-group-item-action" style="height: 140px;display:none;"></li>
-	  <a href="javascript:void(0);" onclick="onFooterModel();" class="list-group-item list-group-item-action">App\Pages\Templates\FooterModel</a>
-	  <li id="onFooterModel" class="list-group-item list-group-item-action" style="height: 140px;display:none;"></li>
+		<div class="list-group-item list-group-item-action">
+			<a href="javascript:void(0);" onclick="onHeaderModel();">Create Header</a>
+		</div>
+		<li id="onHeaderModel" class="list-group-item list-group-item-action" style="height: 140px;display:none;"></li>
+		<div class="list-group-item list-group-item-action">
+			<a href="javascript:void(0);" onclick="onFooterModel();">Create Footer</a>
+		</div>
+		<li id="onFooterModel" class="list-group-item list-group-item-action" style="height: 200px;display:none;"></li>
 	</div>
+
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
-	<a href="http://obullo.com/" class="btn btn-lg btn-block btn-outline-secondary">Learn more about Obullo</a>
+	<a href="http://obullo.com/" class="btn btn-lg btn-block btn-outline-secondary">Learn more about Obullo-Pages</a>
 </div>
 
 <?php $this->inlineScript()->captureStart(); ?>

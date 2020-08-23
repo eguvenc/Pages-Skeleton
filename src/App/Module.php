@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App;
 
 use Obullo\PageEvent;
-use Obullo\Router\Types\IntType;
 use Laminas\Diactoros\Response;
+use Laminas\Router\Http\Literal;
 use Obullo\Middleware\NotFoundHandler;
 use Obullo\Middleware\ErrorHandler;
 use Laminas\ServiceManager\Factory\InvokableFactory;
@@ -25,12 +25,16 @@ class Module
             ],
             'router' => [
                 'routes' => [
-                    '/' => [
-                        'handler' => 'App\Pages\IndexModel',
-                    ]
-                ],
-                'types' => [
-                    new IntType('<int:id>'),
+                    'home' => [
+                        'type'    => Literal::class,
+                        'options' => [
+                            'route'    => '/',
+                            'verb' => 'get',
+                            'defaults' => [
+                                'controller' => 'App\Pages\IndexModel',
+                            ],
+                        ],
+                    ],
                 ],
             ]
         ];

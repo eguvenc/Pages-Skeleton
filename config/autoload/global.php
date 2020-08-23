@@ -8,8 +8,4 @@ return [
     'view_manager' => [
           'base_path' => '/',
     ],
-    // router configurations
-    'router' => [
-        'translatable_routes' => false,
-    ],
 ];

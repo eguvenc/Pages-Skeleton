@@ -6,5 +6,5 @@
  * Order of array is important.
  */
 return  [
-    'Obullo\Middleware\HttpMethodMiddleware'
+
 ];

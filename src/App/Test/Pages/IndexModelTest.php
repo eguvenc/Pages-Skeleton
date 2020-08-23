@@ -37,7 +37,7 @@ class IndexModelTest extends AbstractHttpPageTestCase
         $this->assertModuleName('App');
         $this->assertPageModelName(IndexModel::class);
         $this->assertPageModel('IndexModel');
-        $this->assertMatchedRoutePath('/');
+        $this->assertMatchedRouteName('home');
     }
 
     public function testIndexModelRenderedWithinLayout()

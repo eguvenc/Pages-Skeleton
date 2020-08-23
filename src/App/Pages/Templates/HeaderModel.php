@@ -11,6 +11,8 @@ class HeaderModel extends PartialView
 {
     public function onGet()
     {
+    	$this->view->modelName = get_class($this);
+
         return new HtmlResponse($this->render($this->view));
     }
 }
